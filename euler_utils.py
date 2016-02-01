@@ -7,7 +7,7 @@ def timing(f):
         time1 = time.time()
         ret = f(*args)
         time2 = time.time()
-        print '%s function took %0.3f s' % (f.func_name, (time2-time1))
+        print( '%s function took %0.3f s' % (f.func_name, (time2-time1)))
         return ret
     return wrap
 
@@ -40,3 +40,13 @@ def powerEff(a,m):
         prod = prod*prod
     
     return ans
+
+def primesLessThan(n):
+    l = [True]*n
+    l[0] = l[1] = False
+    for (p, isPrime) in zip(range(n), l):
+        if isPrime:
+            yield int(p)
+            for i in range(p*p,n,p):
+                l[i] = False
+        
