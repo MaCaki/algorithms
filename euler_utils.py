@@ -42,6 +42,9 @@ def powerEff(a,m):
     return ans
 
 def primesLessThan(n):
+    if n == 1: 
+        yield None
+        
     l = [True]*n
     l[0] = l[1] = False
     for (p, isPrime) in zip(range(n), l):
